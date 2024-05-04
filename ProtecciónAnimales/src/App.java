@@ -15,11 +15,7 @@ public class App {
         
         System.out.println("11111");
 
-<<<<<<< HEAD
-      
-=======
          System.out.println("JJJJJJJJJJJJJJJ");
->>>>>>> c689416a94c58da023751369a3192b082682da69
         System.out.println("000000000000");
 
         System.out.println("111111111111111111111111111111111");
@@ -27,11 +23,7 @@ public class App {
         System.out.println("xxxxxxxxxxxxxx");
 
        
-<<<<<<< HEAD
-
-=======
         System.out.println("kkkkkkkkkkkkkk");
->>>>>>> c689416a94c58da023751369a3192b082682da69
         System.out.println("1222");
        System.out.println("PRUEBAAAA");
     }
