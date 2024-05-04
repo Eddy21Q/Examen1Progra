@@ -3,7 +3,7 @@ public class App {
 
 
 
-        System.out.println("Aqui se hará el desarrollo de la lógica del proyecto");
+        
 
 
 
