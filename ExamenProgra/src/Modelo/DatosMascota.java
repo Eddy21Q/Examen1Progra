@@ -4,7 +4,6 @@ public class DatosMascota {
 
 
     private String nombre;
-    
     private String raza;
     private int edad;
     private boolean esterilizada;
@@ -16,10 +15,10 @@ public class DatosMascota {
         this.edad = edad;
         this.esterilizada = esterilizada;
 
-     
+      
     }
     
-
+     
 
 
 }
