@@ -12,8 +12,6 @@ public class App {
 
         System.out.println("300");
 
-        System.out.println("900000");
- 
         
         System.out.println("11111");
 
