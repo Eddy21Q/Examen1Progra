@@ -1,4 +1,4 @@
-package Visssta;
+package Vista;
 
 public class GUI {
 
@@ -6,3 +6,4 @@ public class GUI {
 
 
 }
+

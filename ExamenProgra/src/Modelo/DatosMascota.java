@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Calculo {
+public class DatosMascota {
 
 
 
