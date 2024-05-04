@@ -11,6 +11,7 @@ public class App {
         System.out.println("xd");
 
         System.out.println("300");
+        System.out.println("3000");
 
     
         System.out.println("11111");
