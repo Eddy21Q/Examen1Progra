@@ -1,4 +1,4 @@
-package Q;
+package ExamenProgra.src.Q;
 
 public class Calculo {
 

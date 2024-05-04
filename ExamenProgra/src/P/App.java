@@ -1,6 +1,6 @@
-package P;
+package ExamenProgra.src.P;
 
-import Q.Calculo;
+import ExamenProgra.src.Q.Calculo;
 
 
 public class App {
