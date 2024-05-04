@@ -1,6 +1,6 @@
 package Principal;
 
-import Q.Calculo;
+import Modelo.Calculo;
 
 
 public class App {
