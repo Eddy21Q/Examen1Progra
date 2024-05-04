@@ -16,7 +16,7 @@ public class DatosMascota {
         this.edad = edad;
         this.esterilizada = esterilizada;
 
-        System.out.println();
+     
     }
     
 
