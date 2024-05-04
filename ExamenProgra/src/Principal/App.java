@@ -1,11 +1,7 @@
-<<<<<<< HEAD:ExamenProgra/src/P/App.java
-package ExamenProgra.src.P;
-=======
+
 package Principal;
->>>>>>> 4fd28dd4396dac56003a9787bc7507951387421c:ExamenProgra/src/Principal/App.java
 
-import ExamenProgra.src.Q.Calculo;
-
+import Q.Calculo;
 
 public class App {
     public static void main(String[] args) throws Exception {
