@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -51,43 +53,78 @@ public class GUI extends JFrame{
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.Y_AXIS));
-    
+        
         // Botones
         JButton btnDarEnAdopcion = new JButton("Dar mascota en adopción");
         JButton btnMostrarMascotas = new JButton("Mostrar mascotas disponibles para adoptar");
         JButton btnEsterilizacion = new JButton("¿Qué es la esterilización y cómo cuidar nuestras mascotas?");
-    
+        
         Color colorCeleste = new Color(255, 153, 153); // Celeste claro
         btnDarEnAdopcion.setBackground(colorCeleste);
         btnMostrarMascotas.setBackground(colorCeleste);
         btnEsterilizacion.setBackground(colorCeleste);
-    
+        
         Font nuevaFuente = new Font("Arial", Font.BOLD, 16);
         btnDarEnAdopcion.setFont(nuevaFuente);
         btnMostrarMascotas.setFont(nuevaFuente);
         btnEsterilizacion.setFont(nuevaFuente);
-    
+        
         btnDarEnAdopcion.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnMostrarMascotas.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnEsterilizacion.setAlignmentX(Component.CENTER_ALIGNMENT);
-    
+        
         // Añadir botones al panel de botones
         panelBotones.add(btnDarEnAdopcion);
         panelBotones.add(Box.createVerticalStrut(20)); // Espacio entre botones
         panelBotones.add(btnMostrarMascotas);
         panelBotones.add(Box.createVerticalStrut(20)); // Espacio entre botones
         panelBotones.add(btnEsterilizacion);
-    
+        
         // Agregar el panel de botones al panel principal en el este
         panel.add(panelBotones, BorderLayout.EAST);
-    
-        // Añadir panel al JFrame
-        getContentPane().add(panel);
-
         
+        // Panel para el logo y el texto
+        JPanel panelAbajo = new JPanel();
+panelAbajo.setLayout(new BoxLayout(panelAbajo, BoxLayout.Y_AXIS));
+
+// Logo
+ImageIcon logoIcon = new ImageIcon("ruta/al/logo.png"); // Ajusta la ruta según la ubicación de tu logo
+JLabel labelLogo = new JLabel(logoIcon);
+
+// Texto
+JLabel labelTexto = new JLabel("Una mascotita no puede faltar en la familia");
+labelTexto.setPreferredSize(new Dimension(510, 50));
+Font fuenteGrande = labelTexto.getFont().deriveFont(Font.BOLD, 24); // Cambiar el tamaño de la fuente según tus necesidades
+labelTexto.setFont(fuenteGrande);
+
+// Añadir el logo y el texto al panelAbajo
+panelAbajo.add(labelLogo);
+panelAbajo.add(labelTexto);
+
+// Agregar espacio adicional para mover el JTextArea hacia abajo
+panelAbajo.add(Box.createVerticalStrut(30));
+panelAbajo.add(Box.createVerticalGlue());
+
+// JTextArea
+JTextArea textArea = new JTextArea();
+textArea.setEditable(true); // Permitir la edición del texto en el JTextArea (true) o no (false)
+
+textArea.setPreferredSize(new Dimension(300, 200));
+
+// Añadir JScrollPane al JTextArea
+JScrollPane scrollPane = new JScrollPane(textArea);
+scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+// Añadir el JScrollPane al panelAbajo
+panelAbajo.add(scrollPane);
+
+// Añadir el panelAbajo al sur del panel principal
+panel.add(panelAbajo, BorderLayout.SOUTH);
+
+// Añadir panel al JFrame
+getContentPane().add(panel);
         
     }
 

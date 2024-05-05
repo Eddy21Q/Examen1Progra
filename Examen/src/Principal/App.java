@@ -9,7 +9,7 @@ public class App {
 
         pantalla.setVisible(true);
 
-        pantalla.setSize(1000, 1000);
+        pantalla.setSize(1000, 800);
 
         pantalla.setResizable(false);
         pantalla.setLocationRelativeTo(null);
