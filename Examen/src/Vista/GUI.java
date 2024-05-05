@@ -1,10 +1,14 @@
 package Vista;
 import java.awt.*;
-
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GUI extends JFrame{
@@ -15,9 +19,30 @@ public class GUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 300);
         setLocationRelativeTo(null); // Centrar la ventana
-
+        
         JPanel panel = new JPanel();
         panel.setBackground(Color.GREEN); // Fondo verde
+
+
+ try {
+            // Lee la imagen del archivo
+            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\josue\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
+            
+            // Escala la imagen al tamaño deseado
+            Image imagenEscalada = imagenOriginal.getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Cambia los valores según el tamaño deseado
+            
+            // Crea un ImageIcon con la imagen escalada
+            ImageIcon icono = new ImageIcon(imagenEscalada);
+            
+            // Crea un JLabel con la imagen
+            JLabel labelImagen = new JLabel(icono);
+            
+            // Agrega el JLabel al panel en el centro
+            panel.add(labelImagen, BorderLayout.CENTER);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
 
         // Layout vertical
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -56,6 +81,8 @@ public class GUI extends JFrame{
         panel.add(btnMostrarMascotas);
         panel.add(Box.createVerticalStrut(20)); // Agrega otro espacio vertical de 10 píxeles entre los botones
         panel.add(btnEsterilizacion);
+
+        
 
         // Añadir panel al JFrame
         getContentPane().add(panel);
