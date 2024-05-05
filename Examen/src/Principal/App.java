@@ -1,11 +1,15 @@
 package Principal;
+
+import Vista.GUI;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+    
+    GUI pantalla = new GUI();
 
-        System.out.println("Hello, World!");
+    pantalla.setVisible(true);
+    pantalla.setLocationRelativeTo(null);
 
 
-        System.out.println("HOLA MUNDO!");
     }
 }
