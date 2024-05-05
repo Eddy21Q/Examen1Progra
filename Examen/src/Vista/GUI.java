@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 public class GUI extends JFrame{
   
     public GUI() {
-        System.out.println("hhhhh");
+        System.out.println("hhhhghfhfh");
 
  setTitle("Aplicación Protectora de Animales");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
