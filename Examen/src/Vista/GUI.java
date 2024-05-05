@@ -44,7 +44,7 @@ public class GUI extends JFrame{
             ex.printStackTrace();
         }
 
-
+        
         // Layout vertical
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
