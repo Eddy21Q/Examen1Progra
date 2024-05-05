@@ -1,5 +1,5 @@
 package Vista;
-
+import java.awt.*;
 import java.awt.Color;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -29,6 +29,20 @@ public class GUI extends JFrame{
         JButton btnDarEnAdopcion = new JButton("Dar mascota en adopción");
         JButton btnMostrarMascotas = new JButton("Mostrar mascotas disponibles para adoptar");
         JButton btnEsterilizacion = new JButton("¿Qué es la esterilización y cómo cuidar nuestras mascotas?");
+
+
+
+        Color colorCeleste = new Color(255, 153, 153); // Celeste claro
+        btnDarEnAdopcion.setBackground(colorCeleste);
+        btnMostrarMascotas.setBackground(colorCeleste);
+        btnEsterilizacion.setBackground(colorCeleste);
+
+
+        Font nuevaFuente = new Font("Arial", Font.BOLD, 16);
+        btnDarEnAdopcion.setFont(nuevaFuente);
+        btnMostrarMascotas.setFont(nuevaFuente);
+        btnEsterilizacion.setFont(nuevaFuente);
+
 
         // Añadir botones al panel
         panel.add(btnDarEnAdopcion);
