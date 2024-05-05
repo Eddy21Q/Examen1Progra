@@ -1,4 +1,4 @@
-package ExamPrograa.src;
+package ExamProgra.src;
 
 public class App {
 
