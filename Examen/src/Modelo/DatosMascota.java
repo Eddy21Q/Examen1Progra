@@ -1,6 +1,6 @@
 package Modelo;
 
-public class DatosMascota {
+public abstract class DatosMascota {
 
 
 
