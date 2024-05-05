@@ -15,7 +15,7 @@ public class GUI extends JFrame{
   
     public GUI() {
         System.out.println("hhhhghfhfh");
-        System.out.println("zzzzz ");
+        System.out.println("kjlkkjkljk");
 
  setTitle("Aplicación Protectora de Animales");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
