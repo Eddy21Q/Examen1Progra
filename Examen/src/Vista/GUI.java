@@ -3,6 +3,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -21,13 +22,13 @@ public class GUI extends JFrame{
         setSize(300, 300);
         setLocationRelativeTo(null); // Centrar la ventana
         
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(null);
         panel.setBackground(Color.GREEN); // Fondo verde
 
 
  try {
             // Lee la imagen del archivo
-            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\josue\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
+            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\demia\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
             
             // Escala la imagen al tamaño deseado
             Image imagenEscalada = imagenOriginal.getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Cambia los valores según el tamaño deseado
@@ -38,13 +39,18 @@ public class GUI extends JFrame{
             // Crea un JLabel con la imagen
             JLabel labelImagen = new JLabel(icono);
             
+            labelImagen.setBounds(0, 0, 300, 200); 
+    
             // Agrega el JLabel al panel en el centro
             panel.add(labelImagen, BorderLayout.CENTER);
+
+ panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-        
+       
         // Layout vertical
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
