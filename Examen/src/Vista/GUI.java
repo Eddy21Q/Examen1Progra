@@ -10,9 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import javax.swing.SwingConstants;
+public class GUI extends JFrame{
     public GUI() {
         setTitle("Aplicación Protectora de Animales");
+        System.out.println("hhhhh");
+
+ setTitle("Aplicación Protectora de Animales");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 300);
         setLocationRelativeTo(null); // Centrar la ventana
