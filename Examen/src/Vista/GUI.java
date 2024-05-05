@@ -3,7 +3,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -24,20 +23,15 @@ public class GUI extends JFrame{
         setSize(300, 300);
         setLocationRelativeTo(null); // Centrar la ventana
         
-        JPanel panel = new JPanel(null);
+        JPanel panel = new JPanel();
         panel.setBackground(Color.GREEN); // Fondo verde
 
 
  try {
-<<<<<<< HEAD
-            // Lee la imagen del archivo
-            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\demia\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
-=======
             
             
              // Lee la imagen del archivo
-            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\josue\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
->>>>>>> 3fe2335ccad9972def56e989e675b71c083dfe34
+            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\demia\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
             
             // Escala la imagen al tamaño deseado
             Image imagenEscalada = imagenOriginal.getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Cambia los valores según el tamaño deseado
@@ -49,37 +43,18 @@ public class GUI extends JFrame{
             JLabel labelImagen = new JLabel(icono);
             labelImagen.setHorizontalAlignment(SwingConstants.CENTER);
             
-<<<<<<< HEAD
-            labelImagen.setBounds(0, 0, 300, 200); 
-    
-            // Agrega el JLabel al panel en el centro
-            panel.add(labelImagen, BorderLayout.CENTER);
-
- panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-=======
             // Agrega el JLabel al panel
             panel.add(labelImagen, BorderLayout.CENTER);
 
             labelImagen.setBorder(new EmptyBorder(0, 0, 0, 110)); 
->>>>>>> 3fe2335ccad9972def56e989e675b71c083dfe34
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-<<<<<<< HEAD
-       
-        // Layout vertical
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-        // Espaciador vertical
-        panel.add(Box.createVerticalStrut(20)); // Agrega un espacio vertical de 20 píxeles
-
-=======
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.Y_AXIS));
     
->>>>>>> 3fe2335ccad9972def56e989e675b71c083dfe34
         // Botones
         JButton btnDarEnAdopcion = new JButton("Dar mascota en adopción");
         JButton btnMostrarMascotas = new JButton("Mostrar mascotas disponibles para adoptar");
