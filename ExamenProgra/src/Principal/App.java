@@ -9,7 +9,7 @@ public class App {
           pantalla.setVisible(true);
           pantalla.setLocationRelativeTo(null);
 
-   
+         System.out.println("MASCOTA");
 
     }
 }
