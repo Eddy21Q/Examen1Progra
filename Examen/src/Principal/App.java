@@ -14,6 +14,7 @@ public class App {
 
         pantalla.setResizable(false);
         pantalla.setLocationRelativeTo(null);
+        
 
     }
 }
