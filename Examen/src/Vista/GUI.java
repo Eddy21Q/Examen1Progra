@@ -31,7 +31,7 @@ public class GUI extends JFrame{
             
             
              // Lee la imagen del archivo
-            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\demia\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
+            Image imagenOriginal = ImageIO.read(new File("C:\\Users\\Josue\\Documents\\Examen1Progra\\Examen\\Imagenes\\image.png"));
             
             // Escala la imagen al tamaño deseado
             Image imagenEscalada = imagenOriginal.getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Cambia los valores según el tamaño deseado
