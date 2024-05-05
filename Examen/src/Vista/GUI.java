@@ -1,6 +1,6 @@
 package Vista;
 import java.awt.*;
-import java.awt.Color;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -42,6 +42,12 @@ public class GUI extends JFrame{
         btnDarEnAdopcion.setFont(nuevaFuente);
         btnMostrarMascotas.setFont(nuevaFuente);
         btnEsterilizacion.setFont(nuevaFuente);
+
+
+
+        btnDarEnAdopcion.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnMostrarMascotas.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnEsterilizacion.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 
         // Añadir botones al panel
