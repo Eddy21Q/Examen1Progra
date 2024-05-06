@@ -10,6 +10,7 @@ public class Control implements ActionListener{
         this.vista = vista;
         this.vista.addDarEnAdopcionListener(this);
         this.vista.addMostrarMascotasListener(this);
+        
     }
 
     @Override
