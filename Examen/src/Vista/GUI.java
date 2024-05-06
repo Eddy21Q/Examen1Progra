@@ -77,7 +77,7 @@ public class GUI extends JFrame {
 
         // Etiquetas para los campos de formulario
         JLabel lblNombre = new JLabel("Nombre:");
-        JLabel lblRaza = new JLabel("Raza:");
+        JLabel lblRaza = new JLabel("Especie:");
         JLabel lblEdad = new JLabel("Edad:");
 
         // Estilizar las etiquetas
@@ -170,48 +170,59 @@ public class GUI extends JFrame {
     public void mostrarInfoEsterilizacion() {
         panelContenido.removeAll();
         JPanel panelPrincipal = new JPanel(new BorderLayout());
-    
+
         // Crear el título del panel de información sobre la esterilización
-        JLabel lblTitulo = new JLabel("Información Importante sobre la Esterilización y el Bienestar Animal", SwingConstants.CENTER);
+        JLabel lblTitulo = new JLabel("Información Importante sobre la Esterilización y el Bienestar Animal",
+                SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 24)); // Fuente y tamaño del título
         lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
         lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado alrededor del título
-    
+
         // Crear el panel de texto con la información sobre la esterilización
         JTextArea txtInfoEsterilizacion = new JTextArea();
         txtInfoEsterilizacion.setFont(new Font("Arial", Font.PLAIN, 16)); // Estilo del texto
         txtInfoEsterilizacion.setLineWrap(true); // Activar el ajuste de línea automático
         txtInfoEsterilizacion.setWrapStyleWord(true); // Activar el ajuste de palabra automático
         txtInfoEsterilizacion.setEditable(false); // No editable por el usuario
-    
+
         // Aquí puedes agregar el texto con la información sobre la esterilización
-        String info = "Según un reporte hecho por Mora (2023) donde expone un estudio realizado por Humane Society International que revela tendencias positivas con respecto al bienestar de los animales de compañía, él estudio asevera que \"Los programas de castración esterilización de perros y gatos callejeros parecen estar dando resultado en el objetivo de disminuir la sobrepoblación de estos animales en Costa Rica\"(parr.1).\n" +
-                "La esterilización de nuestras mascotas es muy importante, ya que como se lee en la cita anterior disminuye la sobrepoblación de estos animalitos y mitiga la cantidad de estos en condición de calle.\n" + // " " +
-                "Según señaló la directora ejecutiva de HSI Latinoamérica, Andrea Borel como se cito en Mora (2023): \"Estos son datos vitales que ayudarán a HSI a colaborar con los programas de bienestar animal existentes en Costa Rica para lograr un cambio sostenible, a través del manejo humanitario de la población de perros y gatos, la esterilización asequible y accesible, la atención veterinaria preventiva, la educación pública y una cultura fortalecida de tenencia responsable de mascotas”(parr.5).\n" +
-                "Debemos ser mas humanos y entender que ningún ser merece afrontarse a situaciones tan adversas como vivir en condición de calle, se debe tener buenos valores y principios que nos hagan responsables y mas sensibles sobre el cuidado de nuestras mascotas.\n\n"+
-                "A continuación se compartiran algunos puntos importantes que consideramos como fundación son imprencindibles en el bienestar animal:\n"+
-                "1-Atención veterinaria adecuada: Todos los animales bajo el cuidado de la fundación deben recibir atención veterinaria regular, incluyendo chequeos de salud, vacunas, desparasitación y tratamiento para cualquier enfermedad o lesión.\n"+
-                "2-Nutrición balanceada: Proporcionar una dieta adecuada y balanceada es esencial para mantener la salud y el bienestar de los animales. Esto implica ofrecer alimentos de alta calidad y en las cantidades adecuadas para cada etapa de la vida.\n"+
-                "3-Espacio y ambiente adecuados: Los animales necesitan un espacio limpio y seguro donde puedan moverse libremente, descansar y jugar. Proporcionar un ambiente enriquecido con juguetes, áreas de descanso y estimulación mental es clave para su bienestar.\n"+
-                "4-Socialización y ejercicio: Los perros y gatos son animales sociales que necesitan interacción con otros animales y personas. Es importante ofrecer oportunidades de socialización y ejercicio regular, como paseos, juegos y actividades en grupo.\n"+
-                "5-Promoción de la adopción responsable: Fomentar la adopción responsable implica educar a los adoptantes potenciales sobre las necesidades y responsabilidades que implica tener una mascota, así como realizar procesos de selección cuidadosos para garantizar que los animales sean adoptados por familias adecuadas.\n"+
+        String info = "Según un reporte hecho por Mora (2023) donde expone un estudio realizado por Humane Society International que revela tendencias positivas con respecto al bienestar de los animales de compañía, él estudio asevera que \"Los programas de castración esterilización de perros y gatos callejeros parecen estar dando resultado en el objetivo de disminuir la sobrepoblación de estos animales en Costa Rica\"(parr.1).\n"
+                +
+                "La esterilización de nuestras mascotas es muy importante, ya que como se lee en la cita anterior disminuye la sobrepoblación de estos animalitos y mitiga la cantidad de estos en condición de calle.\n"
+                + // " " +
+                "Según señaló la directora ejecutiva de HSI Latinoamérica, Andrea Borel como se cito en Mora (2023): \"Estos son datos vitales que ayudarán a HSI a colaborar con los programas de bienestar animal existentes en Costa Rica para lograr un cambio sostenible, a través del manejo humanitario de la población de perros y gatos, la esterilización asequible y accesible, la atención veterinaria preventiva, la educación pública y una cultura fortalecida de tenencia responsable de mascotas”(parr.5).\n"
+                +
+                "Debemos ser mas humanos y entender que ningún ser merece afrontarse a situaciones tan adversas como vivir en condición de calle, se debe tener buenos valores y principios que nos hagan responsables y mas sensibles sobre el cuidado de nuestras mascotas.\n\n"
+                +
+                "A continuación se compartiran algunos puntos importantes que consideramos como fundación son imprencindibles en el bienestar animal:\n"
+                +
+                "1-Atención veterinaria adecuada: Todos los animales bajo el cuidado de la fundación deben recibir atención veterinaria regular, incluyendo chequeos de salud, vacunas, desparasitación y tratamiento para cualquier enfermedad o lesión.\n"
+                +
+                "2-Nutrición balanceada: Proporcionar una dieta adecuada y balanceada es esencial para mantener la salud y el bienestar de los animales. Esto implica ofrecer alimentos de alta calidad y en las cantidades adecuadas para cada etapa de la vida.\n"
+                +
+                "3-Espacio y ambiente adecuados: Los animales necesitan un espacio limpio y seguro donde puedan moverse libremente, descansar y jugar. Proporcionar un ambiente enriquecido con juguetes, áreas de descanso y estimulación mental es clave para su bienestar.\n"
+                +
+                "4-Socialización y ejercicio: Los perros y gatos son animales sociales que necesitan interacción con otros animales y personas. Es importante ofrecer oportunidades de socialización y ejercicio regular, como paseos, juegos y actividades en grupo.\n"
+                +
+                "5-Promoción de la adopción responsable: Fomentar la adopción responsable implica educar a los adoptantes potenciales sobre las necesidades y responsabilidades que implica tener una mascota, así como realizar procesos de selección cuidadosos para garantizar que los animales sean adoptados por familias adecuadas.\n"
+                +
                 "6-Programas de esterilización y castración: La esterilización y castración ayudan a controlar la población de animales sin hogar y a prevenir problemas de salud y comportamiento. Ofrecer programas de esterilización/castración a bajo costo o gratuitos puede ser una forma efectiva de promover el bienestar animal."
-                
-                ;
-    
+
+        ;
+
         txtInfoEsterilizacion.setText(info);
-    
+
         // Crear el panel de scroll para el texto
         JScrollPane scrollPane = new JScrollPane(txtInfoEsterilizacion);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new Dimension(100, 100)); // Reducir el tamaño del JScrollPane
-    
+
         // Crear el panel para la imagen
         JPanel panelImagen = new JPanel(new BorderLayout());
         ImageIcon imagen = new ImageIcon("ruta/a/tu/imagen.jpg"); // Reemplaza con la ruta de tu imagen
         JLabel lblImagen = new JLabel(imagen);
         panelImagen.add(lblImagen, BorderLayout.CENTER);
-    
+
         // Crear el botón para volver al Menú Principal
         JButton btnVolver = new JButton("Volver al Menú Principal");
         btnVolver.setFont(new Font("Arial", Font.BOLD, 16)); // Estilizar el botón
@@ -223,22 +234,19 @@ public class GUI extends JFrame {
                 mostrarMenuPrincipal();
             }
         });
-    
+
         // Agregar los componentes al panel principal
         panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
         panelPrincipal.add(scrollPane, BorderLayout.CENTER);
         panelPrincipal.add(panelImagen, BorderLayout.SOUTH); // Agregar el panel de la imagen debajo del JTextArea
         panelPrincipal.add(btnVolver, BorderLayout.SOUTH); // Mover el botón al sur también
-    
+
         // Agregar el panel principal al contenido principal
         panelContenido.add(panelPrincipal, BorderLayout.CENTER);
         panelContenido.revalidate();
         panelContenido.repaint();
 
-
-}
-
-
+    }
 
     public void mostrarMenuPrincipal() {
         panelContenido.removeAll();
@@ -288,7 +296,7 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Acción del otro botón
             }
-            
+
         });
         btnOtroBoton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -315,10 +323,12 @@ public class GUI extends JFrame {
         panelImagenes.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado arriba y abajo
 
         // Cargar la imagen y ajustar su tamaño
-        ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // Reemplaza // imagen
+        ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // Reemplaza
+                                                                                                                  // //
+                                                                                                                  // imagen
         Image imagen = imagenIcono.getImage();
         Image imagenEscalada = imagen.getScaledInstance(600, -1, Image.SCALE_SMOOTH); // Ajusta el ancho a 400 y escala
-                                                                                     
+
         ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
 
         // Crear un JLabel con la imagen escalada
