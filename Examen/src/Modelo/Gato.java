@@ -10,7 +10,7 @@ public class Gato extends DatosMascota {
     @Override
     public String toString() {
         return "Gato\n" +
-                "nombre:'" + getNombre() + '\'' + "\n" +
+                "nombre: " + getNombre() + "\n" +
                 "raza: " + getRaza() + "\n" +
                 "edad: " + getEdad() + "\n" +
                 "esterilizada: " + isEsterilizada() + "\n";
