@@ -1,19 +1,20 @@
 package Modelo;
 
-public abstract class DatosMascota {
-
+public abstract class DatosMascota {// Creacion de clase padre y abstracta de los datos de las mascotas
+    // instancia de variables
     private String nombre;
     private String raza;
     private int edad;
     private boolean esterilizada;
 
-    public DatosMascota(String nombre, String raza, int edad, boolean esterilizada) {
+    public DatosMascota(String nombre, String raza, int edad, boolean esterilizada) {// constructor
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.esterilizada = esterilizada;
     }
 
+    // sets y gets
     public String getNombre() {
         return nombre;
     }
