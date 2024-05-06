@@ -327,8 +327,8 @@ public class GUI extends JFrame {
         panelImagenes.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado arriba y abajo
 
         // Cargar la imagen y ajustar su tamaño
-        ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // para agregar imagen
-                                                                                                                 
+        ImageIcon imagenIcono = new ImageIcon("C:/Users/Josue/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // para agregar imagen
+                                                                                                               
         Image imagen = imagenIcono.getImage();
         Image imagenEscalada = imagen.getScaledInstance(450, -1, Image.SCALE_SMOOTH); // Ajusta el ancho a 400 y escala
 
