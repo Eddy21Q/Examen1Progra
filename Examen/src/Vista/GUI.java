@@ -102,7 +102,7 @@ public class GUI extends JFrame {
         panelFormulario.add(new JLabel()); 
         panelFormulario.add(chkEsterilizada);
 
-        // Crear el botón de guardar
+        // boton para guardar datos de la mascotita
         JButton btnGuardar = new JButton("Guardar");
         btnGuardar.setFont(new Font("Arial", Font.BOLD, 16)); // Estilizar el botón
         btnGuardar.setBackground(new Color(102, 204, 102)); 
@@ -122,7 +122,7 @@ public class GUI extends JFrame {
                     return;
                 }
 
-                // Crear una instancia de Perro o Gato según la raza ingresada
+                // Crear una instancia de Perro o Gato según la raza ingresada para que a la hora de mostrar se muestre que tipo de animal es
                 DatosMascota nuevaMascota;
                 if (raza.equalsIgnoreCase("perro")) {
                     nuevaMascota = new Perro(nombre, raza, edad, esterilizada);
@@ -133,7 +133,7 @@ public class GUI extends JFrame {
                     return;
                 }
 
-                // Agregar la nueva mascota a la lista
+                // Agregar la nueva mascotita a la lista
                 listaMascotas.add(nuevaMascota);
                 JOptionPane.showMessageDialog(null, "Mascota añadida correctamente");
                 mostrarMenuPrincipal(); // Volver al menú principal después de guardar
@@ -182,9 +182,9 @@ public class GUI extends JFrame {
         txtInfoEsterilizacion.setFont(new Font("Arial", Font.PLAIN, 16)); // Estilo del texto
         txtInfoEsterilizacion.setLineWrap(true); // Activar el ajuste de línea automático
         txtInfoEsterilizacion.setWrapStyleWord(true); // Activar el ajuste de palabra automático
-        txtInfoEsterilizacion.setEditable(false); // No editable por el usuario
+        txtInfoEsterilizacion.setEditable(false); // falso para que la persona no lo pueda editar
 
-        // Aquí puedes agregar el texto con la información sobre la esterilización
+        // aqui se usa esto para agregar la informacion importante sobre esterilizacion
         String info = "Según un reporte hecho por Mora (2023) donde expone un estudio realizado por Humane Society International que revela tendencias positivas con respecto al bienestar de los animales de compañía, él estudio asevera que \"Los programas de castración esterilización de perros y gatos callejeros parecen estar dando resultado en el objetivo de disminuir la sobrepoblación de estos animales en Costa Rica\"(parr.1).\n"
                 +
                 "La esterilización de nuestras mascotas es muy importante, ya que como se lee en la cita anterior disminuye la sobrepoblación de estos animalitos y mitiga la cantidad de estos en condición de calle.\n"
@@ -216,11 +216,8 @@ public class GUI extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setPreferredSize(new Dimension(100, 100)); // Reducir el tamaño del JScrollPane
 
-        // Crear el panel para la imagen
-        JPanel panelImagen = new JPanel(new BorderLayout());
-        ImageIcon imagen = new ImageIcon("ruta/a/tu/imagen.jpg"); // Reemplaza con la ruta de tu imagen
-        JLabel lblImagen = new JLabel(imagen);
-        panelImagen.add(lblImagen, BorderLayout.CENTER);
+    
+        
 
         // Crear el botón para volver al Menú Principal
         JButton btnVolver = new JButton("Volver al Menú Principal");
@@ -237,7 +234,6 @@ public class GUI extends JFrame {
         // Agregar los componentes al panel principal
         panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
         panelPrincipal.add(scrollPane, BorderLayout.CENTER);
-        panelPrincipal.add(panelImagen, BorderLayout.SOUTH); // Agregar el panel de la imagen debajo del JTextArea
         panelPrincipal.add(btnVolver, BorderLayout.SOUTH); // Mover el botón al sur también
 
         // Agregar el panel principal al contenido principal
@@ -255,20 +251,18 @@ public class GUI extends JFrame {
         JLabel lblTitulo = new JLabel("FUNDACIÓN DE ADOPCIÓN DE MASCOTAS", SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 28)); // Fuente y tamaño del título
         lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
-        lblTitulo.setBorder(BorderFactory.createEmptyBorder(40, 0, 20, 0)); // Espaciado alrededor del título
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(40, 0, 20, 0)); // Espaciado alrededor del título para que no quede tan pegado
 
         // Crear el panel de botones
         JPanel panelBotones = new JPanel();
-        panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20)); // Usar FlowLayout para botones en una línea
-                                                                           // horizontal
+        panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20)); // distribuir los botones 
         panelBotones.setBorder(BorderFactory.createEmptyBorder(0, 0, 40, 0)); // Espaciado abajo
 
         // Crear botones con estilo
         JButton btnDarEnAdopcion = new JButton("Dar mascota en adopción");
         JButton btnMostrarMascotas = new JButton("Mostrar mascotas disponibles para adoptar");
-        JButton btnAdoptar = new JButton("Adoptar"); // Nuevo botón para adoptar mascotas
-        JButton btnOtroBoton = new JButton("Información importante sobre la esterilización"); // Texto del botón
-                                                                                              // modificado
+        JButton btnAdoptar = new JButton("Adoptar"); //  botón para adoptar mascotas
+        JButton btnOtroBoton = new JButton("Información importante sobre la esterilización"); //titulo del boton
         btnDarEnAdopcion.setFont(new Font("Arial", Font.BOLD, 20)); // Fuente y tamaño de botones
         btnMostrarMascotas.setFont(new Font("Arial", Font.BOLD, 20));
         btnAdoptar.setFont(new Font("Arial", Font.BOLD, 20));
@@ -286,7 +280,7 @@ public class GUI extends JFrame {
         btnAdoptar.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY)); // Borde del botón
         btnOtroBoton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
 
-        // Agregar acciones a los botones
+        //  acciones de los botones
         btnDarEnAdopcion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 mostrarPanelAdopcion();
@@ -299,15 +293,15 @@ public class GUI extends JFrame {
         });
         btnAdoptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Aquí puedes llamar a un método para mostrar un panel de adopción y manejar la
-                // adopción de mascotas
+                // llamar a un método para mostrar un panel de adopción y manejar la
+                // adopción de las mascotitas
                 mostrarPanelAdoptarMascota();
             }
         });
 
         btnOtroBoton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                mostrarInfoEsterilizacion(); // Acción para mostrar la información sobre la esterilización
+                mostrarInfoEsterilizacion(); // metodo para mostrar la información sobre la esterilización aqui se ve informacion importante para que quien lo vea se informe bien
             }
         });
 
@@ -333,9 +327,8 @@ public class GUI extends JFrame {
         panelImagenes.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado arriba y abajo
 
         // Cargar la imagen y ajustar su tamaño
-        ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // Reemplaza
-                                                                                                                  // //
-                                                                                                                  // imagen
+        ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // para agregar imagen
+                                                                                                                 
         Image imagen = imagenIcono.getImage();
         Image imagenEscalada = imagen.getScaledInstance(450, -1, Image.SCALE_SMOOTH); // Ajusta el ancho a 400 y escala
 
@@ -411,7 +404,7 @@ public class GUI extends JFrame {
             }
         });
         panelPrincipal.add(btnVolverMenuPrincipal, BorderLayout.SOUTH);
-        // Crear un panel para organizar los componentes
+        // panel para organizar los componentes
         JPanel panelFormulario = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
         panelFormulario.add(new JLabel("Nombre de la mascota: "));
         panelFormulario.add(txtNombreMascota);
