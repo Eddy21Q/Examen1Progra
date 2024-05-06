@@ -1,12 +1,13 @@
 package Vista;
 
+//Importaciones necesarias para el correcto funcionamiento del programa
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -23,7 +24,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
 import Controlador.Control;
 import Modelo.DatosMascota;
 import Modelo.Gato;
@@ -31,15 +31,15 @@ import Modelo.Perro;
 
 public class GUI extends JFrame {
     private JPanel panelContenido;
-    private ArrayList<DatosMascota> listaMascotas;
+    private ArrayList<DatosMascota> listaMascotas;// instancia del arraylist que contiene a las mascotas
 
-    public GUI() {
+    public GUI() {// constructor 
         setTitle("Aplicación Protectora de Animales");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
         setLocationRelativeTo(null);
 
-        panelContenido = new JPanel();
+        panelContenido = new JPanel();//Se inicializa el panel principal
         panelContenido.setLayout(new BorderLayout());
         panelContenido.setBackground(new Color(173, 216, 230)); // Color de fondo claro
 
@@ -54,20 +54,19 @@ public class GUI extends JFrame {
         Control controlador = new Control(this);
     }
 
-    public void mostrarPanelAdopcion() {
+    public void mostrarPanelAdopcion() {//metodo que contiene los componentes del panel de dar una adopcion 
         panelContenido.removeAll();
         JPanel panelPrincipal = new JPanel(new BorderLayout());
 
-        // Crear el título del panel de adopción
+        //título del panel de adopción
         JLabel lblTitulo = new JLabel("DAR EN ADOPCIÓN", SwingConstants.CENTER);
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 24)); // Fuente y tamaño del título
-        lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
-        lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado alrededor del título
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 24)); 
+        lblTitulo.setForeground(new Color(51, 102, 204)); 
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); 
 
         // Crear el panel de formulario para ingresar los datos de la mascota
-        JPanel panelFormulario = new JPanel(new GridLayout(5, 2, 10, 10)); // GridLayout para organizar los campos de
-                                                                           // formulario
-        panelFormulario.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50)); // Espaciado alrededor del formulario
+        JPanel panelFormulario = new JPanel(new GridLayout(5, 2, 10, 10)); 
+        panelFormulario.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50)); 
 
         // Campos de texto para ingresar los datos de la mascota
         JTextField txtNombre = new JTextField();
@@ -75,22 +74,22 @@ public class GUI extends JFrame {
         JTextField txtEdad = new JTextField();
         JCheckBox chkEsterilizada = new JCheckBox("Esterilizada");
 
-        // Etiquetas para los campos de formulario
+        
         JLabel lblNombre = new JLabel("Nombre:");
         JLabel lblRaza = new JLabel("Especie:");
         JLabel lblEdad = new JLabel("Edad:");
 
-        // Estilizar las etiquetas
+        
         lblNombre.setFont(new Font("Arial", Font.BOLD, 16));
         lblRaza.setFont(new Font("Arial", Font.BOLD, 16));
         lblEdad.setFont(new Font("Arial", Font.BOLD, 16));
 
-        // Estilizar los campos de texto
+       
         txtNombre.setFont(new Font("Arial", Font.PLAIN, 16));
         txtRaza.setFont(new Font("Arial", Font.PLAIN, 16));
         txtEdad.setFont(new Font("Arial", Font.PLAIN, 16));
 
-        // Estilizar el checkbox
+        
         chkEsterilizada.setFont(new Font("Arial", Font.PLAIN, 16));
 
         // Agregar los componentes al panel de formulario
@@ -100,15 +99,15 @@ public class GUI extends JFrame {
         panelFormulario.add(txtRaza);
         panelFormulario.add(lblEdad);
         panelFormulario.add(txtEdad);
-        panelFormulario.add(new JLabel()); // Espacio vacío para alinear el checkbox
+        panelFormulario.add(new JLabel()); 
         panelFormulario.add(chkEsterilizada);
 
         // Crear el botón de guardar
         JButton btnGuardar = new JButton("Guardar");
         btnGuardar.setFont(new Font("Arial", Font.BOLD, 16)); // Estilizar el botón
-        btnGuardar.setBackground(new Color(102, 204, 102)); // Color de fondo verde claro
-        btnGuardar.setForeground(Color.WHITE); // Color de texto blanco
-        btnGuardar.setBorder(BorderFactory.createLineBorder(new Color(51, 102, 51))); // Borde del botón
+        btnGuardar.setBackground(new Color(102, 204, 102)); 
+        btnGuardar.setForeground(Color.WHITE);
+        btnGuardar.setBorder(BorderFactory.createLineBorder(new Color(51, 102, 51))); 
         btnGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String nombre = txtNombre.getText();
@@ -116,7 +115,7 @@ public class GUI extends JFrame {
                 int edad;
                 boolean esterilizada = chkEsterilizada.isSelected();
 
-                try {
+                try {//captura de exepciones
                     edad = Integer.parseInt(txtEdad.getText());
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Por favor ingresa una edad válida");
@@ -143,10 +142,10 @@ public class GUI extends JFrame {
 
         // Crear el botón para volver al Menú Principal
         JButton btnVolver = new JButton("Volver al Menú Principal");
-        btnVolver.setFont(new Font("Arial", Font.BOLD, 16)); // Estilizar el botón
-        btnVolver.setBackground(new Color(255, 153, 153)); // Color de fondo rosa claro
-        btnVolver.setForeground(Color.WHITE); // Color de texto blanco
-        btnVolver.setBorder(BorderFactory.createLineBorder(new Color(204, 0, 0))); // Borde del botón
+        btnVolver.setFont(new Font("Arial", Font.BOLD, 16)); // Estilizar el boton
+        btnVolver.setBackground(new Color(255, 153, 153)); 
+        btnVolver.setForeground(Color.WHITE);
+        btnVolver.setBorder(BorderFactory.createLineBorder(new Color(204, 0, 0))); 
         btnVolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 mostrarMenuPrincipal();
@@ -161,13 +160,13 @@ public class GUI extends JFrame {
         panelBotones.add(btnVolver);
         panelPrincipal.add(panelBotones, BorderLayout.SOUTH);
 
-        // Agregar el panel principal al contenido principal
+        // Agregar el panel principal al panel de contenido principal
         panelContenido.add(panelPrincipal, BorderLayout.CENTER);
         panelContenido.revalidate();
         panelContenido.repaint();
     }
 
-    public void mostrarInfoEsterilizacion() {
+    public void mostrarInfoEsterilizacion() {//metodo que contiene los componentes del panel Mostrar informacion sobre la esterilizacion
         panelContenido.removeAll();
         JPanel panelPrincipal = new JPanel(new BorderLayout());
 
@@ -248,182 +247,187 @@ public class GUI extends JFrame {
 
     }
 
-public void mostrarMenuPrincipal() {
-    panelContenido.removeAll();
-    JPanel panelPrincipal = new JPanel(new BorderLayout());
+    public void mostrarMenuPrincipal() {
+        panelContenido.removeAll();
+        JPanel panelPrincipal = new JPanel(new BorderLayout());
 
-    // Crear el título de la fundación
-    JLabel lblTitulo = new JLabel("FUNDACIÓN DE ADOPCIÓN DE MASCOTAS", SwingConstants.CENTER);
-    lblTitulo.setFont(new Font("Arial", Font.BOLD, 28)); // Fuente y tamaño del título
-    lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
-    lblTitulo.setBorder(BorderFactory.createEmptyBorder(40, 0, 20, 0)); // Espaciado alrededor del título
+        // Crear el título de la fundación
+        JLabel lblTitulo = new JLabel("FUNDACIÓN DE ADOPCIÓN DE MASCOTAS", SwingConstants.CENTER);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 28)); // Fuente y tamaño del título
+        lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(40, 0, 20, 0)); // Espaciado alrededor del título
 
-    // Crear el panel de botones
-    JPanel panelBotones = new JPanel();
-    panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20)); // Usar FlowLayout para botones en una línea horizontal
-    panelBotones.setBorder(BorderFactory.createEmptyBorder(0, 0, 40, 0)); // Espaciado abajo
+        // Crear el panel de botones
+        JPanel panelBotones = new JPanel();
+        panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20)); // Usar FlowLayout para botones en una línea
+                                                                           // horizontal
+        panelBotones.setBorder(BorderFactory.createEmptyBorder(0, 0, 40, 0)); // Espaciado abajo
 
-    // Crear botones con estilo
-    JButton btnDarEnAdopcion = new JButton("Dar mascota en adopción");
-    JButton btnMostrarMascotas = new JButton("Mostrar mascotas disponibles para adoptar");
-    JButton btnAdoptar = new JButton("Adoptar"); // Nuevo botón para adoptar mascotas
-    JButton btnOtroBoton = new JButton("Información importante sobre la esterilización"); // Texto del botón modificado
-    btnDarEnAdopcion.setFont(new Font("Arial", Font.BOLD, 20)); // Fuente y tamaño de botones
-    btnMostrarMascotas.setFont(new Font("Arial", Font.BOLD, 20));
-    btnAdoptar.setFont(new Font("Arial", Font.BOLD, 20));
-    btnOtroBoton.setFont(new Font("Arial", Font.BOLD, 20));
-    btnDarEnAdopcion.setBackground(new Color(255, 204, 204)); // Color de fondo rosa claro
-    btnMostrarMascotas.setBackground(new Color(255, 204, 204));
-    btnAdoptar.setBackground(new Color(255, 204, 204)); // Color de fondo rosa claro
-    btnOtroBoton.setBackground(new Color(255, 204, 204));
-    btnDarEnAdopcion.setForeground(Color.DARK_GRAY); // Color de texto oscuro
-    btnMostrarMascotas.setForeground(Color.DARK_GRAY);
-    btnAdoptar.setForeground(Color.DARK_GRAY); // Color de texto oscuro
-    btnOtroBoton.setForeground(Color.DARK_GRAY);
-    btnDarEnAdopcion.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY)); // Borde del botón
-    btnMostrarMascotas.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
-    btnAdoptar.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY)); // Borde del botón
-    btnOtroBoton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        // Crear botones con estilo
+        JButton btnDarEnAdopcion = new JButton("Dar mascota en adopción");
+        JButton btnMostrarMascotas = new JButton("Mostrar mascotas disponibles para adoptar");
+        JButton btnAdoptar = new JButton("Adoptar"); // Nuevo botón para adoptar mascotas
+        JButton btnOtroBoton = new JButton("Información importante sobre la esterilización"); // Texto del botón
+                                                                                              // modificado
+        btnDarEnAdopcion.setFont(new Font("Arial", Font.BOLD, 20)); // Fuente y tamaño de botones
+        btnMostrarMascotas.setFont(new Font("Arial", Font.BOLD, 20));
+        btnAdoptar.setFont(new Font("Arial", Font.BOLD, 20));
+        btnOtroBoton.setFont(new Font("Arial", Font.BOLD, 20));
+        btnDarEnAdopcion.setBackground(new Color(255, 204, 204)); // Color de fondo rosa claro
+        btnMostrarMascotas.setBackground(new Color(255, 204, 204));
+        btnAdoptar.setBackground(new Color(255, 204, 204)); // Color de fondo rosa claro
+        btnOtroBoton.setBackground(new Color(255, 204, 204));
+        btnDarEnAdopcion.setForeground(Color.DARK_GRAY); // Color de texto oscuro
+        btnMostrarMascotas.setForeground(Color.DARK_GRAY);
+        btnAdoptar.setForeground(Color.DARK_GRAY); // Color de texto oscuro
+        btnOtroBoton.setForeground(Color.DARK_GRAY);
+        btnDarEnAdopcion.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY)); // Borde del botón
+        btnMostrarMascotas.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        btnAdoptar.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY)); // Borde del botón
+        btnOtroBoton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
 
-    // Agregar acciones a los botones
-    btnDarEnAdopcion.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            mostrarPanelAdopcion();
-        }
-    });
-    btnMostrarMascotas.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            mostrarMascotas();
-        }
-    });
-    btnAdoptar.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            // Aquí puedes llamar a un método para mostrar un panel de adopción y manejar la adopción de mascotas
-            mostrarPanelAdoptarMascota();
-        }
-    });
-    
-    btnOtroBoton.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            mostrarInfoEsterilizacion(); // Acción para mostrar la información sobre la esterilización
-        }
-    });
+        // Agregar acciones a los botones
+        btnDarEnAdopcion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarPanelAdopcion();
+            }
+        });
+        btnMostrarMascotas.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarMascotas();
+            }
+        });
+        btnAdoptar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Aquí puedes llamar a un método para mostrar un panel de adopción y manejar la
+                // adopción de mascotas
+                mostrarPanelAdoptarMascota();
+            }
+        });
 
-    // Ajustar el tamaño de los botones
-    Dimension btnSize = new Dimension(600, 50);
-    btnDarEnAdopcion.setPreferredSize(btnSize);
-    btnMostrarMascotas.setPreferredSize(btnSize);
-    btnAdoptar.setPreferredSize(btnSize);
-    btnOtroBoton.setPreferredSize(btnSize);
+        btnOtroBoton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarInfoEsterilizacion(); // Acción para mostrar la información sobre la esterilización
+            }
+        });
 
-    // Agregar botones al panel de botones
-    panelBotones.add(btnDarEnAdopcion);
-    panelBotones.add(btnMostrarMascotas);
-    panelBotones.add(btnAdoptar);
-    panelBotones.add(btnOtroBoton);
+        // Ajustar el tamaño de los botones
+        Dimension btnSize = new Dimension(600, 50);
+        btnDarEnAdopcion.setPreferredSize(btnSize);
+        btnMostrarMascotas.setPreferredSize(btnSize);
+        btnAdoptar.setPreferredSize(btnSize);
+        btnOtroBoton.setPreferredSize(btnSize);
 
-    // Agregar el título y los botones al panel principal
-    panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
-    panelPrincipal.add(panelBotones, BorderLayout.CENTER);
+        // Agregar botones al panel de botones
+        panelBotones.add(btnDarEnAdopcion);
+        panelBotones.add(btnMostrarMascotas);
+        panelBotones.add(btnAdoptar);
+        panelBotones.add(btnOtroBoton);
 
-    // Espacio para las imágenes
-    JPanel panelImagenes = new JPanel(new FlowLayout(FlowLayout.CENTER));
-    panelImagenes.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado arriba y abajo
+        // Agregar el título y los botones al panel principal
+        panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
+        panelPrincipal.add(panelBotones, BorderLayout.CENTER);
 
-    // Cargar la imagen y ajustar su tamaño
-    ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // Reemplaza // imagen
-    Image imagen = imagenIcono.getImage();
-    Image imagenEscalada = imagen.getScaledInstance(600, -1, Image.SCALE_SMOOTH); // Ajusta el ancho a 400 y escala
+        // Espacio para las imágenes
+        JPanel panelImagenes = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        panelImagenes.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado arriba y abajo
 
-    ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
+        // Cargar la imagen y ajustar su tamaño
+        ImageIcon imagenIcono = new ImageIcon("C:/Users/demia/Documents/Examen1Progra/Examen/Imagenes/menu.jpg"); // Reemplaza
+                                                                                                                  // //
+                                                                                                                  // imagen
+        Image imagen = imagenIcono.getImage();
+        Image imagenEscalada = imagen.getScaledInstance(450, -1, Image.SCALE_SMOOTH); // Ajusta el ancho a 400 y escala
 
-    // Crear un JLabel con la imagen escalada
-    JLabel lblImagen = new JLabel(imagenEscaladaIcono);
-    panelImagenes.add(lblImagen);
+        ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
 
-    // Agregar el panel de imágenes al contenido principal
-    panelContenido.add(panelPrincipal, BorderLayout.CENTER);
-    panelContenido.add(panelImagenes, BorderLayout.SOUTH);
-    
+        // Crear un JLabel con la imagen escalada
+        JLabel lblImagen = new JLabel(imagenEscaladaIcono);
+        panelImagenes.add(lblImagen);
 
-    panelContenido.revalidate();
-    panelContenido.repaint();
-}
+        // Agregar el panel de imágenes al contenido principal
+        panelContenido.add(panelPrincipal, BorderLayout.CENTER);
+        panelContenido.add(panelImagenes, BorderLayout.SOUTH);
 
-public void mostrarPanelAdoptarMascota() {
-    panelContenido.removeAll();
-    JPanel panelPrincipal = new JPanel(new BorderLayout());
+        panelContenido.revalidate();
+        panelContenido.repaint();
+    }
 
-    // Crear el título del panel de adopción de mascotas
-    JLabel lblTitulo = new JLabel("Adoptar una mascota", SwingConstants.CENTER);
-    lblTitulo.setFont(new Font("Arial", Font.BOLD, 24)); // Fuente y tamaño del título
-    lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
-    lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado alrededor del título
+    public void mostrarPanelAdoptarMascota() {
+        panelContenido.removeAll();
+        JPanel panelPrincipal = new JPanel(new BorderLayout());
 
-    // Crear un campo de texto para ingresar el nombre de la mascota a adoptar
-    JTextField txtNombreMascota = new JTextField(20);
-    txtNombreMascota.setFont(new Font("Arial", Font.PLAIN, 16)); // Fuente y tamaño del texto
+        // Crear el título del panel de adopción de mascotas
+        JLabel lblTitulo = new JLabel("Adoptar una mascota", SwingConstants.CENTER);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 24)); // Fuente y tamaño del título
+        lblTitulo.setForeground(new Color(51, 102, 204)); // Color azul para el texto
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Espaciado alrededor del título
 
-    // Crear un botón para confirmar la adopción
-    JButton btnConfirmarAdopcion = new JButton("Adoptar");
-    btnConfirmarAdopcion.setFont(new Font("Arial", Font.BOLD, 16)); // Fuente y tamaño del botón
+        // Crear un campo de texto para ingresar el nombre de la mascota a adoptar
+        JTextField txtNombreMascota = new JTextField(20);
+        txtNombreMascota.setFont(new Font("Arial", Font.PLAIN, 16)); // Fuente y tamaño del texto
 
-    // Acción del botón para confirmar la adopción
-    btnConfirmarAdopcion.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            // Capturar el nombre de la mascota ingresado
-            String nombreMascota = txtNombreMascota.getText();
-            // Verificar si el nombre de la mascota está en la lista de mascotas disponibles
-            boolean mascotaDisponible = false;
-            DatosMascota mascotaAdoptada = null;
-            for (DatosMascota mascota : listaMascotas) {
-                if (mascota.getNombre().equalsIgnoreCase(nombreMascota)) {
-                    mascotaDisponible = true;
-                    mascotaAdoptada = mascota;
-                    break;
+        // Crear un botón para confirmar la adopción
+        JButton btnConfirmarAdopcion = new JButton("Adoptar");
+        btnConfirmarAdopcion.setFont(new Font("Arial", Font.BOLD, 16)); // Fuente y tamaño del botón
+
+        // Acción del botón para confirmar la adopción
+        btnConfirmarAdopcion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Capturar el nombre de la mascota ingresado
+                String nombreMascota = txtNombreMascota.getText();
+                // Verificar si el nombre de la mascota está en la lista de mascotas disponibles
+                boolean mascotaDisponible = false;
+                DatosMascota mascotaAdoptada = null;
+                for (DatosMascota mascota : listaMascotas) {
+                    if (mascota.getNombre().equalsIgnoreCase(nombreMascota)) {
+                        mascotaDisponible = true;
+                        mascotaAdoptada = mascota;
+                        break;
+                    }
+                }
+                // Mostrar un JOptionPane si la mascota no está disponible
+                if (!mascotaDisponible) {
+                    JOptionPane.showMessageDialog(null, "La mascota no está disponible para adopción.",
+                            "Mascota No Disponible", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    // Eliminar la mascota del ArrayList
+                    listaMascotas.remove(mascotaAdoptada);
+                    // Mostrar un JOptionPane con los datos de la mascota adoptada
+                    String mensaje = "Mascota adoptada con éxito:\n" +
+                            "Nombre: " + mascotaAdoptada.getNombre() + "\n" +
+                            "Raza: " + mascotaAdoptada.getRaza() + "\n" +
+                            "Edad: " + mascotaAdoptada.getEdad() + "\n" +
+                            "Esterilizada: " + (mascotaAdoptada.isEsterilizada() ? "Sí" : "No");
+                    JOptionPane.showMessageDialog(null, mensaje, "Adopción Exitosa", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-            // Mostrar un JOptionPane si la mascota no está disponible
-            if (!mascotaDisponible) {
-                JOptionPane.showMessageDialog(null, "La mascota no está disponible para adopción.", "Mascota No Disponible", JOptionPane.WARNING_MESSAGE);
-            } else {
-                // Eliminar la mascota del ArrayList
-                listaMascotas.remove(mascotaAdoptada);
-                // Mostrar un JOptionPane con los datos de la mascota adoptada
-                String mensaje = "Mascota adoptada con éxito:\n" +
-                                 "Nombre: " + mascotaAdoptada.getNombre() + "\n" +
-                                 "Raza: " + mascotaAdoptada.getRaza() + "\n" +
-                                 "Edad: " + mascotaAdoptada.getEdad() + "\n" +
-                                 "Esterilizada: " + (mascotaAdoptada.isEsterilizada() ? "Sí" : "No");
-                JOptionPane.showMessageDialog(null, mensaje, "Adopción Exitosa", JOptionPane.INFORMATION_MESSAGE);
+        });
+
+        JButton btnVolverMenuPrincipal = new JButton("Volver al Menú Principal");
+        btnVolverMenuPrincipal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarMenuPrincipal(); // Volver al menú principal al presionar este botón
             }
-        }
-    });
-    
-    JButton btnVolverMenuPrincipal = new JButton("Volver al Menú Principal");
-    btnVolverMenuPrincipal.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            mostrarMenuPrincipal(); // Volver al menú principal al presionar este botón
-        }
-    });
-    panelPrincipal.add(btnVolverMenuPrincipal, BorderLayout.SOUTH);
-    // Crear un panel para organizar los componentes
-    JPanel panelFormulario = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
-    panelFormulario.add(new JLabel("Nombre de la mascota: "));
-    panelFormulario.add(txtNombreMascota);
-    panelFormulario.add(btnConfirmarAdopcion);
+        });
+        panelPrincipal.add(btnVolverMenuPrincipal, BorderLayout.SOUTH);
+        // Crear un panel para organizar los componentes
+        JPanel panelFormulario = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        panelFormulario.add(new JLabel("Nombre de la mascota: "));
+        panelFormulario.add(txtNombreMascota);
+        panelFormulario.add(btnConfirmarAdopcion);
 
-    // Agregar el título y el panel de adopción al panel principal
-    panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
-    panelPrincipal.add(panelFormulario, BorderLayout.CENTER);
+        // Agregar el título y el panel de adopción al panel principal
+        panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
+        panelPrincipal.add(panelFormulario, BorderLayout.CENTER);
 
-    // Agregar el panel principal al contenido
-    panelContenido.add(panelPrincipal, BorderLayout.CENTER);
+        // Agregar el panel principal al contenido
+        panelContenido.add(panelPrincipal, BorderLayout.CENTER);
 
-    panelContenido.revalidate();
-    panelContenido.repaint();
-}
- 
+        panelContenido.revalidate();
+        panelContenido.repaint();
+    }
+
     public void addDarEnAdopcionListener(ActionListener listener) {
         // Obtener el botón Dar mascota en adopción
         Component[] components = ((JPanel) panelContenido.getComponent(0)).getComponents();
