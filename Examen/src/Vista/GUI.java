@@ -1,7 +1,9 @@
 package Vista;
+import Modelo.DatosMascota;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -10,12 +12,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class GUI extends JFrame{
+
+      ArrayList<DatosMascota> mascotas = new ArrayList<>();
+
+      
   
     public GUI() {
   
@@ -90,8 +94,7 @@ public class GUI extends JFrame{
 panelAbajo.setLayout(new BoxLayout(panelAbajo, BoxLayout.Y_AXIS));
 
 // Logo
-ImageIcon logoIcon = new ImageIcon("ruta/al/logo.png"); // Ajusta la ruta según la ubicación de tu logo
-JLabel labelLogo = new JLabel(logoIcon);
+
 
 // Texto
 JLabel labelTexto = new JLabel("Una mascotita no puede faltar en la familia");
@@ -100,32 +103,27 @@ Font fuenteGrande = labelTexto.getFont().deriveFont(Font.BOLD, 24); // Cambiar e
 labelTexto.setFont(fuenteGrande);
 
 // Añadir el logo y el texto al panelAbajo
-panelAbajo.add(labelLogo);
+
 panelAbajo.add(labelTexto);
 
 // Agregar espacio adicional para mover el JTextArea hacia abajo
 panelAbajo.add(Box.createVerticalStrut(30));
 panelAbajo.add(Box.createVerticalGlue());
 
-// JTextArea
-JTextArea textArea = new JTextArea();
-textArea.setEditable(true); // Permitir la edición del texto en el JTextArea (true) o no (false)
 
-textArea.setPreferredSize(new Dimension(300, 200));
 
-// Añadir JScrollPane al JTextArea
-JScrollPane scrollPane = new JScrollPane(textArea);
-scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-// Añadir el JScrollPane al panelAbajo
-panelAbajo.add(scrollPane);
 
 // Añadir el panelAbajo al sur del panel principal
 panel.add(panelAbajo, BorderLayout.SOUTH);
 
 // Añadir panel al JFrame
 getContentPane().add(panel);
+
+
         
     }
 
+    
+    
 }
